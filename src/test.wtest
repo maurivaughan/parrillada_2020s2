@@ -1,3 +1,17 @@
 import comidas.*
 import comensales.*
 import cocina.*
+
+test "test"{
+ const hamburguesa = new HamburguesaDeCarne(pan=casero)
+ const hamburguesaVegetariana = new HamburguesasVegetarianas(pan=masaMadre, legumbre="garbanzos")
+ const provoleta = new Provoleta(peso=190, especias=true)
+ const asado = new Cortes(nombre="asado", calidad=10,peso=250)
+ const entrania = new Cortes(nombre="entrania",calidad = 7, peso=200)
+ const chorizo = new Cortes(nombre="chorizo",calidad = 8, peso=50)
+ const parrillada = new Parrillada(cortes=[asado,entrania,chorizo])
+ assert.equals(80, hamburguesa.valoracion())
+ assert.equals(122, hamburguesaVegetariana.valoracion())
+ assert.that(provoleta.esEspecial())
+ assert.equals(147,parrillada.valoracion())
+}
